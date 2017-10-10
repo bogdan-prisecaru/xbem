@@ -1,0 +1,68 @@
+/**
+ * Mixin for Responsiveness
+ */
+$breakpoints: (
+  desktop: '(min-width: 1200px)',
+  tablet: '(min-width: 768px) and (max-width: 1200px)',
+  phone: '(max-width: 767px)'
+);
+@mixin respondto($device) {
+  @each $name, $point in $breakpoints {
+    @if $name == $device {
+      @media #{$point} {
+        @content;
+      }
+    }
+  }
+}
+/**
+ * Flexbox Container
+ */
+@mixin flex($inline: false, $wrap: nowrap, $direction: row, $justify: flex-start, $align: stretch) {
+  @if $inline == false {
+    display: flex;
+  } @else {
+    display: inline-flex;
+  }
+
+  @if $wrap != nowrap {
+    flex-wrap: $wrap;
+  }
+  @if $direction != row {
+    flex-direction: $direction;
+  }
+  @if $justify != flex-start {
+    justify-content: $justify;
+  }
+  @if $align != stretch {
+    align-items: $align;
+  }
+}
+/**
+ * Mixin for flex grouping
+ */
+@mixin flexgroupof($value, $gutter: 20, $isresponsive: false) {
+  @include flex($wrap: wrap);
+  $offset: $gutter * ($value - 1) + unquote('px');
+
+  @if $isresponsive == true {
+    @media handheld, only screen and (max-width: 767px) {
+      flex-direction: column;
+      > * { width: 100%; }
+    }
+  }
+
+  > * {
+    width: calc((100% - #{$offset}) / #{$value});
+    margin: ($gutter / 2) * 1px;
+    margin-top: 0;
+
+    &:nth-of-type(#{$value}n+1) {
+      margin-left: 0;
+    }
+
+    &:nth-of-type(#{$value}n+#{$value}) {
+      margin-right: 0;
+    }
+  }
+}

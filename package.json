@@ -1,0 +1,24 @@
+{
+  "name": "xbem",
+  "version": "0.0.8",
+  "description": "BEM made fun and easy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bogdan-prisecaru/xbem.git"
+  },
+  "keywords": [
+    "BEM",
+    "SCSS",
+    "CSS"
+  ],
+  "author": "Prisecaru Bogdan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bogdan-prisecaru/xbem/issues"
+  },
+  "homepage": "https://github.com/bogdan-prisecaru/xbem#readme"
+}
