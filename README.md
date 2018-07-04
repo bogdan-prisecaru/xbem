@@ -1,7 +1,5 @@
 # B.E.M FRAMEWORK
 
-[![Bytex](http://i.imgur.com/HZ1NEBA.png)](http://bytex.ro/)
-
 ### by Prisecaru Bogdan
 
 
